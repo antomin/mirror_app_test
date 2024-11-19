@@ -18,7 +18,7 @@ def start_app() -> FastAPI:
     return app
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     _set_loggers()
     logger.info("Start application...")
     try:
@@ -28,7 +28,7 @@ if __name__ == '__main__':
             host="0.0.0.0",
             port=8000,
             workers=1,
-            log_level=settings.LOG_LEVEL.lower()
+            log_level=settings.LOG_LEVEL.lower(),
         )
     except KeyboardInterrupt:
         logger.info("Application stopped")

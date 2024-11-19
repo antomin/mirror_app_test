@@ -98,3 +98,4 @@ cython_debug/
 docker-compose-dev.yml
 poetry.lock
 data
+.flake8

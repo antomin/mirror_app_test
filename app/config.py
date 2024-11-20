@@ -26,11 +26,12 @@ class Settings(BaseSettings):
         env_nested_delimiter="__",
     )
 
+    LOG_LEVEL: str = "INFO"
     DB: DatabaseSettings
     WORKERS: int = 2
     START_TIME_HOUR: int = 7
     END_TIME_HOUR: int = 23
-    WALK_DURATION_MIN: int = 30
+    WALK_DURATION: int = 30
 
 
 settings = Settings()

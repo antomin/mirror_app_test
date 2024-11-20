@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from loguru import logger
 
 from app.config import settings
+from app.routers import router
 
 
 def _set_loggers() -> None:
@@ -14,6 +15,7 @@ def _set_loggers() -> None:
 
 def start_app() -> FastAPI:
     app = FastAPI()
+    app.include_router(router)
 
     return app
 

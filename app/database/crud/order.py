@@ -10,7 +10,7 @@ from app.schemas.order import OrderCreateSchema
 
 
 async def get_orders_by_date(date: date, session: AsyncSession) -> Sequence[Order]:
-    stmt = select(Order).where(func.date(Order.created_at) == date)
+    stmt = select(Order).where(func.date(Order.dt_start) == date)
     result = await session.scalars(stmt)
     return result.all()
 

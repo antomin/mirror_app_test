@@ -20,11 +20,12 @@ class OrderCreateSchema(BaseModel):
     @field_validator("dt_start")
     def validate_dt_start(cls, value: datetime):
         if value.minute not in (0, 30):
-            raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail="The minute must be 0 or 30")
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="The minute must be 0 or 30")
         if not (settings.START_TIME_HOUR <= value.hour < settings.END_TIME_HOUR):
             raise HTTPException(
-                status_code=status.HTTP_409_CONFLICT, detail="The time is out of working hours"
+                status_code=status.HTTP_400_BAD_REQUEST, detail="The time is out of working hours"
             )
+
         return value
 
 
